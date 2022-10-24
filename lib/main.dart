@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
@@ -27,13 +28,15 @@ class SixHabits extends StatelessWidget {
 	}
 }
 
+//TODO: Delete and implement all of me!
 class Foo extends ConsumerWidget {
 	const Foo({super.key});
 	@override
 	Widget build(BuildContext context, WidgetRef ref) {
-		return const Scaffold(
+		DateTime rightnow = DateTime.now();
+		return Scaffold(
 			body: Center(
-				child: Text("Foo")
+				child: Text("It is $rightnow")
 			),
 		);
 	}
