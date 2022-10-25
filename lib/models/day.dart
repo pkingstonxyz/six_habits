@@ -19,6 +19,16 @@ class Day {
 		this.habit6,
 	});
 
+	factory Day.fromMap(Map<String, dynamic> map) => Day(
+		 day: map['day'],
+		 habit1: map['habit1'],
+		 habit2: map['habit2'],
+		 habit3: map['habit3'],
+		 habit4: map['habit4'],
+		 habit5: map['habit5'],
+		 habit6: map['habit6']
+	);
+
 	Map<String, dynamic> toMap () {
 		return {
 			'day': day,
