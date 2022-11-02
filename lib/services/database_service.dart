@@ -3,6 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
+import 'package:six_habits/models/day.dart';
 
 class DatabaseService {
 	//This is a Singleton class. In other words, it doesn't always return a new instance of the class
@@ -38,6 +39,30 @@ class DatabaseService {
 		);
 	}
 	 
+	void initializeHabits(
+		habit1,
+		habit2,
+		habit3,
+		habit4,
+		habit5,
+		habit6) {
+		_database?.insert(
+			"habits",
+			{
+				'day': 0,
+				'habit1': habit1,
+				'habit2': habit2 != "" ? habit2 : Null,
+				'habit3': habit3 != "" ? habit3 : Null,
+				'habit4': habit4 != "" ? habit4 : Null,
+				'habit5': habit5 != "" ? habit5 : Null,
+				'habit6': habit6 != "" ? habit6 : Null,
+		});
+	}
+
+	Future<Day> getHabits() async {
+		final query = await _database?.query("habits", where: "day == 0");
+		final habitList = query?[0];
+	}
 }
 
 final databaseProvider = Provider<DatabaseService>(

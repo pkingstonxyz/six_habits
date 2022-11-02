@@ -1,5 +1,3 @@
-import 'package:six_habits/services/database_service.dart';
-
 class Day {
 	final int day; //Using milliseconds from epoch
 	final bool habit1;

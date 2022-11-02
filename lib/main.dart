@@ -11,11 +11,14 @@ import 'package:six_habits/pages/habits.dart';
 final prefsProvider = Provider<SharedPreferences>(
 	(ref) {throw Error();}
 );
+
 void main() async {
 	//Needed
 	WidgetsFlutterBinding.ensureInitialized();
 
 	final prefs = await SharedPreferences.getInstance();
+	//TODO: Remove this when done testing!!
+	await prefs.clear();
 	runApp(
 		ProviderScope(
 			overrides: [
